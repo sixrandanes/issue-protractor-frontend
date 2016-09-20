@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@angular/tsc-wrapped": "0.3.0",
-    "angular-cli": "1.0.0-beta.8",
+    "angular-cli": "1.0.0-beta.10",
     "axo-shrinkwrap": "2.2.0",
     "bower": "1.7.9",
     "codelyzer": "0.0.28",

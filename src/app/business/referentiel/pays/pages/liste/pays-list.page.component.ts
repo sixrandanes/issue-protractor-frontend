@@ -32,7 +32,9 @@ export class PaysListPageComponent {
    * Récuperation de la liste des pays
    */
   liste() {
-    //line to comment to run tests with protractor
+    // line to comment to make tests pass or fails
+    // if this method is commented, the http query is never done, and the test is OK
+    // if this method is uncommented, the http query is done, but the test fails because of a timeout (as if protractor never detects the http return)
     this.search();
   }
 
