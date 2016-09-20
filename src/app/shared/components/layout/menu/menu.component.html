@@ -1,0 +1,45 @@
+<!-- Drawer Content -->
+<paper-menu class="app-menu wrap" attr-for-selected="data-route" selected="[[route]]">
+  <paper-item class="menu-item">
+    <a [routerLink]="['/']">
+      <iron-icon icon="home"></iron-icon>
+      <span>Accueil</span>
+    </a>
+  </paper-item>
+
+  <paper-submenu label="Tarifs">
+    <paper-item class="menu-trigger">
+      <iron-icon icon="credit-card"></iron-icon>
+      Tarifs
+    </paper-item>
+    <paper-menu class="menu-content sublist">
+      <paper-submenu label="Catalogue des marchandises">
+        <paper-item class="menu-trigger">
+          Catalogue des marchandises
+        </paper-item>
+        <paper-menu class="menu-content sublist">
+          <paper-item><a [routerLink]="['/sections']"><span>Sections</span></a></paper-item>
+          <paper-item><a [routerLink]="['/chapitres']"><span>Chapitres</span></a></paper-item>
+        </paper-menu>
+      </paper-submenu>
+      <!--<paper-item><a [routerLink]="['/']"><span>Catalogue des marchandises</span></a></paper-item>-->
+      <paper-item><a [routerLink]="['/']"><span>Droits et taxes</span></a></paper-item>
+      <paper-item><a [routerLink]="['/']"><span>Contingents</span></a></paper-item>
+      <paper-item><a [routerLink]="['/']"><span>Exonérations</span></a></paper-item>
+      <paper-item><a [routerLink]="['/']"><span>Envois</span></a></paper-item>
+    </paper-menu>
+  </paper-submenu>
+
+  <paper-submenu label="Référentiel">
+    <paper-item class="menu-trigger">
+      <iron-icon icon="assignment"></iron-icon>
+      Référentiel
+    </paper-item>
+    <paper-menu class="menu-content sublist">
+      <paper-item><a [routerLink]="['/unites']"><span>Unités</span></a></paper-item>
+      <paper-item><a [routerLink]="['/incoterms']"><span>Incoterms</span></a></paper-item>
+      <paper-item><a [routerLink]="['/devises']"><span>Devises</span></a></paper-item>
+      <paper-item><a [routerLink]="['/pays']"><span>Pays</span></a></paper-item>
+    </paper-menu>
+  </paper-submenu>
+</paper-menu>

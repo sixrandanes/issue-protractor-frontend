@@ -1,0 +1,152 @@
+@import '../../../../assets/stylesheets/functions/var-css';
+
+$height: 65px;
+$color-header: #e0f2f1;
+
+/*
+Header
+*/
+.header {
+  height: $height;
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  padding-left: 15px;
+  color: teal;
+  font-size:16px;
+}
+
+.header-default {
+  @extend .header;
+  background-color: white;
+  border:none;
+  color:black;
+  font-size:20px;
+}
+
+.header-selected {
+  @extend .header;
+  display: flex;
+  background-color: $color-header;
+}
+
+.header-suppression-confirm {
+  @extend .header;
+  color: #ED5E68;
+  margin-bottom: auto;
+  font-size:16px;
+  background-color: $color-header;
+}
+
+.color-icon {
+  color: #00838F
+}
+
+.button {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.button-annuler {
+  @extend .button;
+  color: teal;
+}
+
+.button-supprimer {
+  @extend .button;
+  color:#ED5E68;
+}
+
+/*
+  Footer
+*/
+.footer {
+  height: $height;
+  background-color: white;
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+}
+
+.footer .info {
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 0 24px 0 24px;
+}
+
+.footer .element {
+  -webkit-flex: 2;
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 0 24px 0 24px;
+}
+
+.pagination {
+  font-size: 13px;
+}
+
+.footer .empty  {
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 0 24px 0 24px;
+  text-align: center;
+}
+
+.label-filter {
+  font-size:14px;
+  text-transform: capitalize;
+  color: white;
+  background-color:steelblue;
+  padding: 5px;
+  margin-left:10px;
+  font-weight: 500;
+  position:relative;
+  top:-3px;
+}
+
+.grid {
+  border:1px solid lightgrey;
+  margin:0px 15px 0 15px;
+  border-radius:2px;
+}
+
+.button-pagination {
+  display: flex;
+  flex-direction: row;
+  font-size:14px;
+  color:teal;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.numero-page {
+  width: 50px;
+  padding-bottom: 15px;
+  text-align: center
+}
+
+.nombre-elements {
+  width: 120px;
+}
+
+.no-min-width {
+  min-width: 0;
+}

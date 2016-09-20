@@ -1,0 +1,25 @@
+
+
+    <ilda-grid [data]="pays" titre="Pays" [frozenColumns]="2" id="paysList"
+               (add)="goCreate()"
+               (update)="goUpdate($event)"
+               (openSearchPanel)="openSearchPanel()">
+      <colgroup>
+        <col name="code2" sortable/>
+        <col name="code3" sortable/>
+        <col name="designation" flex sortable/>
+        <col name="dateEffet" sortable/>
+        <col name="dateFinEffet" sortable/>
+      </colgroup>
+      <thead>
+      <tr>
+        <th>Code 2</th>
+        <th>Code 3</th>
+        <th>{{labels.DESIGNATION}}</th>
+        <th>{{labels.DATE_EFFET}}</th>
+        <th>{{labels.DATE_FIN_EFFET}}</th>
+      </tr>
+      </thead>
+    </ilda-grid>
+
+    <div id="test">bayonne</div>

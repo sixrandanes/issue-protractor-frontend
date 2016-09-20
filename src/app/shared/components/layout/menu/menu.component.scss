@@ -1,0 +1,44 @@
+// Cette fonction génére une sortie de type { background-color: #B0BEC5; }
+// qui peut être mise en valeur comme    --app-drawer-content-container: { background-color: #B0BEC5; }
+// Si l'on écrit directement la ligne précédente dans le scss, le pré-processeur plante à cause du ": {"
+@function background-container($color){
+  @return unquote("{ background-color:" + $color+ "; }")
+}
+
+
+
+:host {
+
+  body {
+    margin: 0;
+    font-family: 'Roboto', 'Noto', sans-serif;
+  }
+  app-toolbar {
+    background-color: #4285f4;
+    color: #fff;
+  }
+
+  #main-panel-opener {
+    display: block !important;
+    margin: 0 15px;
+  }
+
+  .menu-item {
+    padding: 0;
+    font-size: 14px;
+  }
+
+   #drawerPanelMain > div > paper-icon-button  {
+     display: block !important;
+     margin: 0 15px;
+   }
+
+  app-drawer {
+    --app-drawer-scrim-background: rgba(0, 0, 100, 0.8);
+    //--app-drawer-content-container: background-container(#B0BEC5);
+  }
+}
+
+
+
+

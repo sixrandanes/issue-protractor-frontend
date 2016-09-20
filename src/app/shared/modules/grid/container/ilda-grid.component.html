@@ -1,0 +1,22 @@
+<ilda-grid-component
+  [gridInfo]="gridInfo"
+  [totalPages]="(gridInfo | async)?.totalPages"
+  [titre]="titre"
+  [searchable]="searchable"
+  [frozenColumns]="frozenColumns"
+  (gridReady)="gridReady($event)"
+  (clickRefresh)="refresh()"
+  (clickSearch)="search()"
+  (clickFirst)="first()"
+  (clickPrev)="prev()"
+  (clickNext)="next()"
+  (clickLast)="last()"
+  (clickAdd)="onAdd()"
+  (clickUpdate)="onUpdate()"
+  (clickDelete)="onDelete()"
+  (clickCancel)="onCancel()"
+  (clickConfirm)="onConfirm()"
+  (clickPage)="onChangePage($event)"
+  (clickEntries)="onChangeEntries($event)">
+  <ng-content></ng-content>
+</ilda-grid-component>

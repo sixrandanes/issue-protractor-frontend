@@ -1,0 +1,6 @@
+{
+  "endpoints": {
+    "ilda": "https://ilda.dev.appli-gestion.nc/api"
+  },
+  "name": "ilda"
+}

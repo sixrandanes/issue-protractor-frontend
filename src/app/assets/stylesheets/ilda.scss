@@ -1,0 +1,36 @@
+@import './paper-styles/color.css';
+@import './functions/var-css';
+
+html {
+  height:100%;
+}
+
+body {
+  height: 100%;
+  padding:0!important;
+  margin:0!important;
+
+  // variables utilisées pour le composant richtext
+  --richtext-focus-color: var-css(--paper-teal-50);
+  // A ne pas remplacer par white, la valeur doit être sous ce format
+  --richtext-sleep-color: #ffffff;
+}
+
+
+/*
+ * Styles transverses, pour corriger le chevauchement des messages d'erreur
+ */
+paper-input, paper-textarea, ilda-date-picker {
+  padding-bottom: 8px;
+  height: 52px;
+}
+
+
+ilda-combo-box{
+  padding-bottom: 16px;
+}
+
+.error-ilda-combobox {
+  color:red;
+  font-size: 12px;
+}

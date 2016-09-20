@@ -1,0 +1,53 @@
+$color-btn-primary:teal;
+$color-btn-secondary:white;
+$font-weight:500;
+$border-radius:2px;
+
+.buttons-layout {
+  flex: 1;
+  text-align: right;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.buttons-footer-layout {
+  flex: 1;
+  text-align: right;
+  margin: 10px 0;
+  width:100%;
+  display:inline-block;
+}
+
+/* Bouton Save */
+.btn-save {
+  background-color:$color-btn-primary;
+  color:$color-btn-secondary;
+  font-weight:$font-weight;
+}
+
+.btn-save:hover, .btn-save:focus {
+  background-color: darken($color-btn-primary, 3%);
+  font-weight:$font-weight;
+}
+
+.btn-save[disabled] {
+  background-color:#eaeaea;
+  color:#a8a8a8;
+  cursor:auto;
+}
+
+/* Bouton Cancel */
+.btn-cancel {
+  color:$color-btn-primary;
+  font-weight:$font-weight;
+  border:1px solid $color-btn-primary;
+  border-radius:$border-radius;
+}
+
+.btn-cancel:hover, .btn-cancel:focus  {
+  color:$color-btn-secondary;
+  background-color: darken($color-btn-primary, 3%);
+  font-weight:$font-weight;
+  border:1px solid $color-btn-primary;
+  border-radius:$border-radius;
+}

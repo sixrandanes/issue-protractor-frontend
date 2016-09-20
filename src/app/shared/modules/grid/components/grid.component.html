@@ -1,0 +1,87 @@
+<section>
+  <div class="grid">
+  <div class="header-default" *ngIf="!((gridInfo | async)?.selected)">
+    <div>{{titre}}
+      <paper-button class="label-filter" (click)="clickSearch.emit($event)" *ngFor="let field of listFieldsFromUrlRecherche(((gridInfo | async)?.current));">Filtré par {{field}}</paper-button>
+    </div>
+    <div>
+      <paper-icon-button class="color-icon" (click)="clickAdd.emit($event)"  id="add" icon="add-circle" title="Ajouter"></paper-icon-button>
+      <paper-icon-button class="color-icon" (click)="clickRefresh.emit($event)"  id="refresh" icon="refresh" title="Rafraîchir"></paper-icon-button>
+      <paper-icon-button *ngIf="searchable === true" class="color-icon" (click)="clickSearch.emit($event)"  id="search" icon="search" title="Rechercher"></paper-icon-button>
+    </div>
+  </div>
+
+  <div class="header-selected" *ngIf="((gridInfo | async)?.selected) && !((gridInfo | async)?.confirm)">
+    <div>1 élément sélectionné</div>
+    <div>
+      <paper-icon-button class="color-icon" (click)="clickUpdate.emit($event)" id="update" *ngIf="((gridInfo | async)?.selected)" icon="create" title="Modifier"></paper-icon-button>
+      <paper-icon-button class="color-icon" (click)="clickDelete.emit($event)" id="delete" *ngIf="((gridInfo | async)?.selected)" icon="delete" title="Supprimer"></paper-icon-button>
+    </div>
+  </div>
+
+    <div class="header-suppression-confirm" *ngIf="((gridInfo | async)?.confirm)">
+      <div>{{labels.SUPPRESSION_MESSAGE}} </div>
+      <div>
+        <paper-button class="button-supprimer" (click)="clickConfirm.emit($event)" id="confirmer" *ngIf="((gridInfo | async)?.selected)">
+          <iron-icon icon="delete"></iron-icon>Supprimer</paper-button>
+        <paper-button class="button-annuler" (click)="clickCancel.emit($event)" id="annuler" *ngIf="((gridInfo | async)?.selected)">
+          <iron-icon icon="cancel"></iron-icon>Annuler</paper-button>
+      </div>
+    </div>
+
+  <vaadin-grid #grid frozenColumns="{{frozenColumns}}">
+    <table>
+      <ng-content></ng-content>
+    </table>
+  </vaadin-grid>
+
+  <div class="footer">
+    <div class="empty" [hidden]="!((gridInfo | async)?.totalElements === 0)">
+      Aucun résultat
+    </div>
+    <div class="info" [hidden]="((gridInfo | async)?.totalElements === 0)">
+      Affichage des éléments {{(gridInfo | async)?.firstElement || 0}} à {{(gridInfo | async)?.lastElement || 0 }} sur {{(gridInfo | async)?.totalElements || 0}}
+    </div>
+    <div class="element" *ngIf="!((gridInfo | async)?.totalElements === 0)">
+      <ilda-combo-box
+          class="nombre-elements"
+          id="elem"
+          label="Elements par page"
+          input-read-only
+          hide-clear-button
+          [value]="(gridInfo | async)?.size"
+          [items]="['10','20','30']"
+          (value-changed)="showEntries($event)"
+      >
+      </ilda-combo-box>
+    </div>
+    <div class="button-pagination" *ngIf="!((gridInfo | async)?.totalElements === 0)">
+      <paper-button (click)="clickFirst.emit($event)"
+                    [ngClass]="{'hidden': !(gridInfo | async)?.prev }"
+                    [disabled]="!(gridInfo | async)?.prev"
+                    class="no-min-width">
+        1
+      </paper-button>
+    <paper-icon-button (click)="clickPrev.emit($event)" id="prev" [disabled]="!(gridInfo | async)?.prev" icon="chevron-left" title="Précédent">
+    </paper-icon-button>
+      <paper-input
+        class="numero-page"
+        allowed-pattern="[0-9]"
+        (keyup.enter)="changePage($event)"
+        (focusout)="restoreLastValue($event)"
+        (focus)="saveLastValue($event)"
+        value="{{(gridInfo | async)?.currentPage}}">
+      </paper-input>
+    <paper-icon-button (click)="clickNext.emit($event)" id="next" [disabled]="!(gridInfo | async)?.next" icon="chevron-right" title="Suivant">
+    </paper-icon-button>
+      <paper-button (click)="clickLast.emit($event)"
+                    [ngClass]="{'hidden': !(gridInfo | async)?.next }"
+                    [disabled]="!(gridInfo | async)?.next"
+                    class="no-min-width">
+        {{(gridInfo | async)?.totalPages || 0}}
+      </paper-button>
+    </div>
+  </div>
+
+  </div>
+</section>

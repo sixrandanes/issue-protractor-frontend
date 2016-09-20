@@ -1,0 +1,8 @@
+<ilda-pays-list [pays]="pays"
+                     (itemsList)="liste()"
+                     (openForm)="open($event);"
+                     (searchPays)="search($event)"
+                     (createPays)="goToCreatePays()"
+                     (updatePays)="goToUpdatePays($event)"
+                     (sort-order-changed)="sort(grid)">
+</ilda-pays-list>
